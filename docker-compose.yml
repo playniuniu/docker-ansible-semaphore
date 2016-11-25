@@ -1,0 +1,34 @@
+version: '2'
+
+services:
+
+  semaphore:
+    image: playniuniu/ansible-semaphore
+    ports:
+      - '4000:3000'
+    volumes:
+      - '~/vol/semaphore:/data'
+    restart: always
+    depends_on:
+      - "db"
+
+  gogs:
+    image: gogs/gogs
+    ports:
+      - '3000:3000'
+      - '2222:22'
+    volumes:
+      - '~/vol/gogs:/data'
+    restart: always
+    depends_on:
+      - "db"
+
+  db:
+    image: 'mariadb'
+    volumes:
+      - '~/vol/db:/var/lib/mysql'
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - '3306:3306'
