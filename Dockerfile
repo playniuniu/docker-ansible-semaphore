@@ -2,7 +2,7 @@ FROM alpine:latest
 MAINTAINER playniuniu@gmail.com
 
 ENV PACKAGE="curl git ansible mysql-client openssh-client openssh sshpass rsync" \
-    SEMAPHORE_DOWNLOAD_URL="https://github.com/ansible-semaphore/semaphore/releases/download/v2.0.4/semaphore_linux_amd64" \
+    SEMAPHORE_DOWNLOAD_URL="https://github.com/ansible-semaphore/semaphore/releases/download/v2.1.0/semaphore_linux_amd64" \
     SEMAPHORE_PLAYBOOK_PATH="/data" \
     GIN_MODE="release"
 
